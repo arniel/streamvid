@@ -1,0 +1,54 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#loginBox {
+    width: 300px;
+    margin: 200px auto 0;
+    border: 1px solid #B1B1B1;
+    box-shadow: 2px 2px 5px black;
+    background: #2F4253;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0, #304872), color-stop(1, #1f2e4b) );
+    background: -moz-linear-gradient( center top, #4F6676 0%, #2F4253 100% );
+    color: white;
+    font-family: arial;
+    font-size: 10px;
+    padding: 30px 20px 20px;
+    border-radius: 5px;
+}
+
+#loginBox h1 {
+    margin: 0px 0px 22px;
+    font-size: 13px;
+}
+
+#loginBox form {
+    width: 200px;
+    margin: 0 60px;
+}
+
+#loginBox form input {
+    padding: 2px 5px
+}
+
+#loginBox input:last-child {
+    font-size: 10px;
+}
+
+#loginBox a {
+    color: red;
+}
+
+#loginBox table {
+    color: white;
+    font-size: 10px
+}
+
+#loginBox table tr {
+    height: 25px;
+}
+
+#loginBox table tr td:first-child {
+    text-align: right;
+}

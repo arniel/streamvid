@@ -1,0 +1,993 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+body {
+    background: #262626;
+}
+
+#siteContainer {
+    width: 80%;
+    max-width: 1600px;
+    min-width: 911px;
+    margin: 0 auto;
+}
+
+#siteContainer #siteContent {
+    width: 100%;
+    color: white;
+}
+
+#siteContent .column1 {
+    width: 15%;
+}
+
+#siteContent .column2 {
+    width: 70%;
+}
+
+#siteContent #header {
+    height: 100px;
+}
+
+#siteContent #header #siteTitle {
+    width: 100%;
+    cursor: pointer;
+}
+
+#siteContent #header #searchBox {
+    float: right;
+    border: 1px solid transparent;
+    padding: 4px 10px 10px;
+    z-index: 100;
+}
+
+#siteContent #header #searchBox.hover {
+    border: 1px solid #505050;
+    background: #373636;
+    box-shadow: 0 0 5px 3px black;
+}
+
+#siteContent #header #searchBox img {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 8px;
+    cursor: pointer;
+}
+
+#siteContent #header #searchBox img#logout {
+    margin: 0 5px 0 0;
+}
+
+#siteContent #header #searchBox img#notes {
+    margin: 0 25px 0 0;
+    width: 25px;
+    height: 25px;
+}
+
+#siteContent #header #searchBox input {
+    width: 200px;
+    height: 25px;
+    margin: 0 0 0 5px;
+    padding: 2px 10px;
+}
+
+#siteContent #header #notesPanel {
+    position: absolute;
+    top: 79px;
+    height: 250px;
+    width: 230px;
+    border-left: 1px solid #505050;
+    border-bottom: 1px solid #505050;
+    border-right: 1px solid #505050;
+    border-top: 2px solid #161616;
+    background: #373636;
+    box-shadow: -1px 3px 5px black;
+    font-size: 0.7em;
+    text-align: left;
+    overflow: auto;
+    z-index: 100;
+}
+
+#siteContent #header #notesPanel .message {
+    border-top: 3px solid rgb(71, 71, 71);
+    border-bottom: 1px solid rgb(27, 27, 27);
+    padding: 5px 10px 5px 10px;
+    background: #2E2E2E;
+}
+
+#siteContent #header #notesPanel .message.active {
+    background: rgb(104, 104, 104);
+    border-bottom: 1px solid rgb(54, 54, 54);
+}
+
+#siteContent #header #notesPanel .message:first-child {
+    border-top: none;
+}
+
+#siteContent #header #notesPanel .message h4 {
+    margin: 5px 0;
+    padding: 3px 0;
+    background: #555;
+    text-align: center;
+    box-shadow: inset 0 0 6px 1px black;
+    border-radius: 9px;
+}
+
+#siteContent #header #notesPanel .message p {
+    font-weight: normal;
+    margin: 0 0 5px 0;
+}
+
+#siteContent #body #navigationPane {
+    height: 500px;
+}
+
+#siteContent #body #navigationPane ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 1px 20px;
+    position: fixed;
+    top: 150px;
+    left: 0;
+    border: 1px solid transparent;
+}
+
+#siteContent #body #navigationPane ul:hover {
+    border: 1px solid #505050;
+    background: #373636;
+    box-shadow: 0 0 5px 3px black;
+}
+
+#siteContent #body #navigationPane ul li {
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+#siteContent #body #navigationPane ul li.icon {
+    width: 65px;
+    /* background: red; */
+}
+
+#siteContent #body #navigationPane ul li.icon img {
+    width: 100%;
+}
+
+#siteContent #body #mainContentPane {
+    background: #373636;
+    border: 1px solid #444444;
+    box-shadow: 0 1px 3px 2px rgb(20, 20, 20);
+}
+
+#siteContent #body #mainContentPane #subHeader {
+    padding: 10px 0 0;
+    margin: 0 20px;
+    border-bottom: 3px solid #252525;
+}
+
+#siteContent #body #mainContentPane #subHeader h1, #siteContent #body #mainContentPane #subHeader #sort {
+    display: inline-block;
+}
+
+#siteContent #body #mainContentPane #subHeader h1 {
+    width: 18%;
+    margin:  0;
+}
+
+#siteContent #body #mainContentPane #subHeader img#star {
+    width: 25px;
+    float: right;
+    cursor: pointer;
+}
+
+#siteContent #body #mainContentPane #subHeader #sort {
+    float: right;
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+    padding:  0;
+    line-height: 100%;
+    height: 100%;
+}
+
+#siteContent #body #mainContentPane #subHeader #sort li {
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+#siteContent #body #mainContentPane #subHeader #sort li img {
+    height: 25px;
+}
+
+#siteContent #body #mainContentPane #subHeader h1 img {
+    width: 100%;
+}
+
+#siteContent #body #mainContentPane #displayListTV table {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#displayListTV #options {
+    text-align: center;
+    font-weight: bold;
+    margin: 5px auto 0;
+    padding: 4px 0;
+    color: #666666;
+    width: 200px;
+    background: #222222;
+    border: 1px dashed #444444;
+    font-size: 0.9em;
+}
+
+#displayListTV #options a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #666666;
+}
+
+#displayListTV #options a:hover {
+    color: #fff;
+}
+
+#displayListTV #options a.active {
+    color: #ff7214;
+}
+
+#displayListTV table td.imageCol:first-child, #displayListFeatured table td.imageCol:first-child {
+    padding: 20px 10px 0 20px;
+}
+
+#displayListTV table td.imageCol:last-child, #displayListFeatured table td.imageCol:last-child {
+    padding: 20px 20px 0 10px;
+}
+
+#displayListTV table td.imageCol img, #displayListFeatured table td.imageCol img {
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #555555;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px black;
+}
+
+#displayListTV table td.imageCol img:hover, #displayListFeatured table td.imageCol img:hover {
+    position: relative;
+    top: -2px;
+    left: -2px;
+    box-shadow: 4px 4px 5px 2px black;
+}
+
+#displayListTV table td.imageCol img:active, #displayListFeatured table td.imageCol img:active {
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 5px 2px black;
+}
+
+#displayListTV table .latestEpCol {
+    position: relative;
+    text-align: center;
+    border: 1px solid rgb(92, 92, 92);
+    background: #1A1A1A;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#displayListTV table .latestEpCol:hover {
+    top: -2px;
+    left: -2px;
+    box-shadow: 4px 4px 5px black;
+}
+
+#displayListTV table .latestEpCol:active {
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 5px black;
+}
+
+#displayListTV table td.latestEpCol img{
+    width: 100%;
+    border: none;
+}
+
+#displayListTV table td.latestEpCol:first-child {
+    padding: 0;
+}
+
+#displayListTV table td.latestEpCol:last-child {
+    padding: 0;
+}
+
+#displayListTV table .latestEpCol h3.airdate {
+    float: right;
+    font-size: 0.7em;
+    font-weight: normal;
+    margin: 0 5px;
+    color: #888888;
+}
+
+#displayListTV table .latestEpCol h3.title {
+    margin: 0 0 4px;
+    font-size: 14px
+}
+
+#displayListTV table#upcoming .latestEpCol {
+    box-shadow: 2px 2px 5px black;
+    cursor: default;
+}
+
+#displayListTV table#upcoming .latestEpCol:hover, #displayList table#upcoming .latestEpCol:active {
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 5px black;
+}
+
+#displayListFeatured {
+    margin-bottom: 20px;
+}
+
+#displayListFeatured table#favoriteMovies {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#displayListFeatured table#favoriteMovies td img {
+    width: 90%;
+    cursor: pointer;
+    border: 1px solid #555555;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px black;
+}
+
+#displayListFeatured table#favoriteMovies td img:hover {
+    position: relative;
+    top: -2px;
+    left: -2px;
+    box-shadow: 4px 4px 5px 2px black;
+}
+
+#displayListFeatured table#favoriteMovies td img:active {
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 5px 2px black;
+}
+
+#displayListFeatured h3 {
+    margin: 40px 0 2px 0;
+    text-align: center;
+    line-height: 0.3em;
+    font-size: 0.9em;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    text-transform: uppercase;
+}
+
+#displayListFeatured h3:first-child {
+    margin: 20px 0 2px 0;
+}
+
+#displayListFeatured table#favoriteShows {
+    min-width: 60%;
+    margin: 0 auto;
+}
+
+#displayListFeatured #noShows {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.7em;
+}
+
+#displayListFeatured #noShows a {
+    color: white;
+}
+
+#displayListMovies table {
+    margin: 20px auto;
+    width: 95%;
+}
+
+#displayListMovies table td {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#displayListMovies table td img.moviePoster {
+    width: 90%;
+    cursor: pointer;  border: 1px solid #555555;  border-radius: 10px;  box-shadow: 2px 2px 5px 2px black;
+}
+
+#displayListMovies table td img.moviePoster:hover {
+    position: relative;
+    top: -2px;
+    left: -2px;
+    box-shadow: 4px 4px 5px 2px black;
+}
+
+#displayListMovies table td img.moviePost:active {
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 5px 2px black;
+}
+
+#displayListShow #showBanner {
+    width: 60%;
+    margin: 10px auto;
+}
+
+#displayListShow #showBanner img {
+    width: 100%;
+    border: 1px solid #535353;
+    box-shadow: 1px 1px 4px rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+#displayListShow h3 {
+    margin: 30px 0 15px 30px;
+    text-shadow: 2px 2px 2px black
+}
+
+#displayListShow table.seasonTable {
+    padding: 2px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #666;
+    background: #222;
+    border-radius: 10px;
+    font-size: 0.7em;
+    box-shadow: 0 0 5px black;
+}
+
+#displayListShow table.seasonTable td {
+    padding: 1px 10px;
+    border: 1px solid rgb(82, 82, 82);
+    background: #151515;
+    height: 55px;
+    width: 25%;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000;
+    cursor: pointer;
+    position: relative;
+}
+
+#displayListShow table.seasonTable td:hover {
+    background: #111;
+    color: #4064ff;
+    top: -2px;
+    left: -2px;
+    box-shadow: 2px 2px 5px #000;
+}
+
+#displayListShow table.seasonTable td:active {
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 5px #000;
+    color: #ff7214;
+}
+
+#displayListShow table.seasonTable td span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#displayListEpisode h3, #displayListFilm h3 {
+    font-size: 0.9em;
+    margin: 0 0 0 25px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
+
+#displayListEpisode h3:first-child {
+    margin: 10px 0 0 25px;
+    text-align: left;
+}
+
+#displayListEpisode h3 a {
+    font-size: 0.7em;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px dashed #555555;
+    background: #252525;
+}
+
+#displayListEpisode h3 a:hover {
+    color: #4064ff;
+}
+
+#displayListEpisode h3 a:active {
+    color: #ff7214;
+}
+
+#displayListEpisode #mediaPlayerWrapper, #displayListFilm #mediaPlayerWrapper {
+    width: 56%;
+    margin: 20px auto;
+}
+
+#displayListEpisode #detailsButton, #displayListShow #detailsButton, #displayListFilm #detailsButton {
+    text-decoration: underline;
+    font-size: 0.8em;
+    text-align: center;
+    color: #999;
+}
+
+#displayListEpisode #detailsButton span, #displayListShow #detailsButton span, #displayListFilm #detailsButton span {
+    cursor: pointer;
+}
+
+#displayListEpisode #episodeDetails, #displayListShow #showDetails, #displayListFilm #movieDetails {
+    width: 40%;
+    margin: 10px auto;
+    border: 1px dashed #5F5F5F;
+    padding: 5px;
+    box-shadow: inset 0 0 5px 1px black;
+    display: none;
+}
+
+#displayListEpisode #episodeDetails table, #displayListShow #showDetails table, #displayListFilm #movieDetails table {
+    background: #252525;
+    padding: 10px;
+    font-size: 0.7em;
+    width: 100%;
+}
+
+#displayListEpisode #episodeDetails table td, #displayListShow #showDetails table td{
+    padding-bottom: 5px;
+}
+
+#displayListEpisode #episodeDetails table td:first-child, #displayListShow #showDetails table td:first-child {
+    width: 30%;
+    padding-right: 20px;
+    text-align: right;
+    font-weight: bold;
+}
+
+#displayListShow #showDetails table td:first-child {
+    width: 50%;
+}
+
+#displayListEpisode #episodeFooter a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    width: 70px;
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #222;
+    border: 1px dotted rgb(92, 92, 92);
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black;
+}
+
+#displayListEpisode #episodeFooter a:hover {
+    color: #4064ff;
+}
+
+#displayListEpisode #episodeFooter a:active {
+    color: #ff7214;
+}
+
+#displayListEpisode #episodeFooter a.disabled {
+    color: #555;
+}
+
+#displayListEpisode #episodeFooter #leftLink {
+    float: left;
+    display: inline-block;
+}
+
+#displayListEpisode #episodeFooter #rightLink {
+    float: right;
+    display: inline-block;
+}
+
+#displayListFilm h3 {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#displayListFilm #detailsButton {
+    margin-bottom: 20px;
+}
+
+#displayListFilm #movieDetails {
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+#displayListFilm #movieDetails table {
+    padding-left: 20px;
+    width: 100%;
+}
+
+#displayListFilm #movieDetails table a {
+    color: white;
+}
+
+#displayListFilm #movieDetails table td:first-child {
+    text-align: right;
+    padding-right: 20px;
+    width: 20%;
+    font-weight: bold;
+}
+
+#displayListFilm #movieDetails table td.secondColumn {
+    padding-right: 20px;
+}
+
+#displayListFilm #movieDetails table td img {
+    width: 200px;
+}
+
+#displayListFilm #movieDetails table td#poster {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#displayListSearch table {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#displayListSearch table td {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#displayListSearch table tr:last-child td {
+    padding-bottom: 10px;
+}
+
+#displayListSearch table td .resultWrapper {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid rgb(80, 80, 80);
+    background: #252525;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+}
+
+#displayListSearch table td .movie.resultWrapper {
+    width: 200px;
+    border-radius: 5px;
+    padding-top: 5px;
+}
+
+#displayListSearch table td .movie.resultWrapper img {
+    position: relative;
+    margin-top: 5px;
+    border-radius: 0px;
+    top: 4px
+}
+
+#displayListSearch table td .resultWrapper:hover {
+    position: relative;
+    top: -2px;
+    left: -2px;
+    box-shadow: 4px 4px 5px black;
+}
+
+#displayListSearch table td .resultWrapper:active {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 5px black;
+}
+
+#displayListSearch table td span {
+    display: block;
+    font-size: 0.8em;
+}
+
+#displayListSearch table td img {
+    width: 100%;
+    border-radius: 3px;
+}
+
+#displayListUser, #displayListSearch, #displayListFeatured, #displayListShow, #displayListTV, #displayListAdmin, #displayListAddMovie, #displayListMovies, #displayListFilm {
+    min-height: 410px;
+}
+
+#displayListUser table {
+    border-radius: 5px;
+}
+
+#displayListUser table#userOptions, #displayListUser table#myStarredShows {
+    width: 400px;
+    margin: 0 auto;
+    font-size: 0.7em;
+    border: 1px solid #666;
+    box-shadow: 0 0 5px black;
+    background: #292929;
+    padding: 20px;
+}
+
+#displayListUser table#myStarredShows {
+    width: 70%;
+    padding: 0;
+}
+
+#displayListUser table#myStarredShows a {
+    color: white;
+}
+
+#displayListUser table#myStarredShows td {
+    width: 25%;
+    padding: 15px 20px;
+    background: #222222;
+    border: 1px dashed #666;
+    font-size: 1.2em
+}
+
+#displayListUser table#myStarredShows input {
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    margin: 6px;
+}
+
+#displayListUser table#userOptions td:first-child {
+    text-align: right;
+    padding: 10px 5px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#displayListUser #saveChanges {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#displayListUser #saveChanges input {
+    cursor: pointer;
+}
+
+#displayListAdmin {
+    padding-bottom: 35px;
+}
+
+#displayListAdmin input[type=button] {
+    cursor: pointer;
+}
+
+#displayListAdmin #newNotification table {
+    width: 400px;
+    padding-bottom: 0px;
+}
+
+#displayListAdmin #newNotification table td {
+    border: 1px solid #474747;
+    background: #151515;
+
+}
+
+#displayListAdmin #newNotification table td:first-child {
+    width: 80px;
+    text-align: center;
+}
+
+#displayListAdmin #newNotification table td:last-child {
+}
+
+#displayListAdmin #newNotification table tr:last-child td {
+    text-align: center;
+    border: none;
+    background: none;
+}
+
+#displayListAdmin #newNotification table textarea {
+    width: 97%;
+    height: 98px;
+}
+
+#displayListAdmin #newNotification table input {
+    width: 98%
+}
+
+#displayListAdmin #newNotification table #submitNewMessage {
+    width: auto;
+}
+
+#displayListAdmin #addNewMovieWrapper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#displayListAdmin #moviesAdmin, #displayListAdmin #usersAdmin, #displayListAdmin #invitesAdmin {
+    word-break: break-all;
+}
+
+#displayListAdmin #jsonText textarea {
+    width: 100%;
+    height: 200px;
+}
+
+#displayListAdmin #jsonText #runstats {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#displayListAdmin  #generateKey {
+    margin-left: 10px;
+}
+
+#displayListAdmin h3, #displayListSearch h3, #displayListUser h3 {
+    text-align: center;
+    margin: 30px 0 10px;
+    text-shadow: 2px 2px 5px black;
+}
+
+#displayListAdmin h3:first-child, #displayListSearch h3:first-child, #displayListUser h3:first-child {
+    margin: 10px 0;
+}
+
+#displayListAdmin table#staffPicksTV td, #displayListAdmin table#staffPicksMovies td {
+    width: 26%;
+    text-align: left;
+    background: #151515;
+    border: 1px solid #474747;
+    padding: 10px;
+}
+
+#displayListAdmin table#staffPicksTV td input, #displayListAdmin table#staffPicksMovies td input {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#displayListAdmin #submitStaffPicksTV, #displayListAdmin #submitStaffPicksMovies {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#displayListAdmin table, #displayListAdmin #jsonText, #displayListAddMovie #addMovieBox {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #666;
+    background: #252525;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.7em;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+}
+
+#displayListAdmin #jsonText {
+    width: 40%;
+}
+
+#displayListAdmin table a {
+    color: white;
+}
+
+#displayListAdmin table td, #displayList table th {
+    padding: 10px;
+    max-width: 200px;
+    overflow: auto;
+}
+
+#displayListAdmin table th {
+    background: #151515;
+}
+
+#displayListAdmin #accountCreator {
+    margin: 0 auto;
+    width: 300px;
+    border: 1px solid #666;
+    background: #252525;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.7em;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+}
+
+#displayListAddMovie #addMovieBox {
+    width: 400px;
+    margin: 50px auto;
+}
+
+#displayListAddMovie #addMovieBox .box#movieSearchBox #movieSearchText {
+    width: 60%;
+    margin: 0 10px 0 15px;
+}
+
+#displayListAddMovie #addMovieBox .box#movieSearchBox #goButton {
+    cursor: pointer;
+}
+
+#displayListAddMovie #addMovieBox .box#resultsBox {
+    text-align: left;
+    margin: 0 10px;
+}
+
+#displayListAddMovie #addMovieBox .box#resultsBox #backButton {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#displayListAddMovie #addMovieBox .box#resultsBox #forwardButton {
+    margin: 10px 0;
+    cursor: pointer;
+    float: right;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox input#backButton, #displayListAddMovie #addMovieBox .box#confirmBox input#confirmButton {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox input#backButton {
+    float: left;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox input#confirmButton {
+    position: relative;
+    left: -20px;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox table {
+    margin: 0 10px;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox form table input {
+    text-align: center;
+    width: 80%;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox table td:first-child {
+    width: 20%;
+    text-align: right;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox table td {
+    padding-top: 10px
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox table textarea {
+    width: 80%;
+    height: 100px;
+}
+
+#displayListAddMovie #addMovieBox .box#confirmBox table img {
+    width: 50%;
+}
+
+#displayListAddMovie #addMovieBox .box#loadingBox img {
+    text-align: center;
+    width: 20px;
+    margin: 0 auto;
+}
+
+#displayListAddMovie .box#resultsBox, #displayListAddMovie .box#confirmBox, #displayListAddMovie .box#loadingBox {
+    display: none;
+}
+
+#siteContent #footer {
+    font-size: 0.7em;
+    line-height: 0.7em;
+}
+
+#siteContent #footer span {
+    float: right;
+    color: #888888
+}
