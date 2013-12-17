@@ -1,36 +1,40 @@
-STREAMVID VERSION 1.1 README
-AUTHOR Jon Hall
-REVISION 1
-DATE 2013/09/10
+StreamVid Version 1.1 Readme
+=======================================================
+ * AUTHOR: Jon Hall
+ * REVISION: 2
+ * DATE: 2013/09/10
 
-SYSTEM REQUIREMENTS:
--Ubuntu Linux (12.10+ supported)
--Local SickBeard installation
--Apache2, with Mod-Auth-Token (https://code.google.com/p/mod-auth-token/) and mod-h264-streaming (http://h264.code-shop.com/trac/wiki/Mod-H264-Streaming-Apache-Version2) installed
--PHP5 (PHP4 may work, not tested)
--MySQL version 5.5.32 or higher
--All video files must be encoded as x264 with .mp4 extensions, no other files will work with StreamVid
+System Requirements
+-------------------------------------------------
+ * Ubuntu Linux (12.10+ supported)
+ * Local SickBeard installation
+ * Apache2, with Mod-Auth-Token (https://code.google.com/p/mod-auth-token/) and mod-h264-streaming (http://h264.code-shop.com/trac/wiki/Mod-H264-Streaming-Apache-Version2) installed
+ * PHP5 (PHP4 may work, not tested)
+ * MySQL version 5.5.32 or higher
+ * All video files must be encoded as x264 with .mp4 extensions, no other files will work with StreamVid
 
-INSTALLATION STEPS:
-These steps may vary slightly per install. The generics will be used in place of any local data when necessary, they will be in ALL CAPS. Support for custom setups will be limited and vary on a case-by-case basis. This guide also assumes you know about general unix permissions and how to make things writeable/readable is StreamVid is having troubles (it shouldn't in most cases).
+Installation Steps
+--------------------------------------------------
+Note: These steps may vary slightly per install. The generics will be used in place of any local data when necessary, they will be in ALL CAPS. Support for custom setups will be limited and vary on a case-by-case basis. This guide also assumes you know about general unix permissions and how to make things writeable/readable is StreamVid is having troubles (it shouldn't in most cases).
+
 1. Include the mod-h264-streaming and mod-auth-token apache modules in your apache2.conf file. Here's a sample of what it should look like:
-
-#Load h264 streaming module
-LoadModule h264_streaming_module /usr/lib/apache2/modules/mod_h264_streaming.so
-AddHandler h264-streaming.extensions .mp4
-
-#Load mod-auth token
-LoadModule auth_token_module /usr/lib/apache2/modules/mod_auth_token.so
-<Directory /var/www/tvcontent>
+<pre>
+    Load h264 streaming module
+    LoadModule h264_streaming_module /usr/lib/apache2/modules/mod_h264_streaming.so
+    AddHandler h264-streaming.extensions .mp4
+    #Load mod-auth token
+    LoadModule auth_token_module /usr/lib/apache2/modules/mod_auth_token.so
+    <Directory /var/www/tvcontent>
         AllowOverride None
         allow from all
-</Directory>
-ScriptAlias /tvcontent/ /PATH/TO/PUBLICWWW/FOLDER/tvcontent/
-<Location /tvcontent/>
+    </Directory>
+    ScriptAlias /tvcontent/ /PATH/TO/PUBLICWWW/FOLDER/tvcontent/
+    <Location /tvcontent/>
         AuthTokenSecret         "PASSWORD"
         AuthTokenPrefix         /tvcontent/
         AuthTokenTimeout        10800
-</Location>
+    </Location>
+</pre>
 
 2. Create a movies folder. If you have one that you already want to use, skip this step.
 3. Create a symbolic link to your movies folder. Navigate to your apache public (www) folder, and issue the following command:
@@ -46,11 +50,10 @@ ScriptAlias /tvcontent/ /PATH/TO/PUBLICWWW/FOLDER/tvcontent/
 9. Copy the contents of the StreamVid archive's "www" folder into your apache public (www) folder.
 8. Create a folder for the program above the apache's public folder, so that it can't be reached by web traffic (I put mine at /var/StreamVid and my public folder is /var/www).
 10. In that folder, place the contents of the StreamVid folder.
-11a. Open index.php, located at the root level of your apache public folder. Edit the line with the placeholder at the top of the file, and give it the absolute path of the config.php file (which should be located at the root level of the StreamVid folder you just created)
-11b. Open create_user_table.php, located at the root level of your apache public folder. Edit the line with the placeholder at the top of the file, and give it the absolute path of the config.php file (which should be located at the root level of the StreamVid folder you just created)
-11b. Open create_user.php, located at the root level of your apache public folder. Edit the line with the placeholder at the top of the file, and give it the absolute path of the config.php file (which should be located at the root level of the StreamVid folder you just created)
-11b. Open the config.php file in the StreamVid folder. You will edit this file with the specifics of your system configuration. Not all lines need to be edited, but in case you do, below are explanations for each line in the config file:
-
+11. Open index.php, located at the root level of your apache public folder. Edit the line with the placeholder at the top of the file, and give it the absolute path of the config.php file (which should be located at the root level of the StreamVid folder you just created)
+12. Open create_user_table.php, located at the root level of your apache public folder. Edit the line with the placeholder at the top of the file, and give it the absolute path of the config.php file (which should be located at the root level of the StreamVid folder you just created)
+13. Open the config.php file in the StreamVid folder. You will edit this file with the specifics of your system configuration. Not all lines need to be edited, but in case you do, below are explanations for each line in the config file:
+<pre>
 $config['StreamVidLoc']				Location of the StreamVid program folder. VERY important.
 $config['SessionSavePath']			The path to sessions folder which will save individual users' sessions for later use (necessary for the login system to work properly).
 $config['LoginAuth'] 					The path to the login authorization php file, which will authorize individual users on every pageview. The full filepath is necessary.
@@ -67,15 +70,18 @@ $config['AuthTokenPrefix']			The prefix shared with mod-auth-token to be used to
 $config['BaseTVDir']					The absolute path to the tv directory (not using the SymLink).
 $config['TMDbAPIKey']				TheMovieDatabase API key, used to retrieve metadata for movies. (Apply for a key here: http://docs.themoviedb.apiary.io/)
 $config['MovieImageLoc']			The absolute path to the movie image directory (not using the SymLink).
+</pre>
 
-12. Open your browser, and navigate to your server's URL : WWW.SERVERURL.COM/create_user_table.php. Assuming you setup your config file correctly, this file should create the users and movies databases necessary for StreamVid to properly run. This file will also have created a basic admin user with username "default" and password "default" (or is it "password"? I honestly don't remember).
-13. Delete or move create_user_table.php from your server's public (www) folder. This file is to be used on first time initialization only. Any subsequent use could remove user or movie entries in the database, or possible corrupt everything.
-14. In your browser, navigate to your server's base URL. You should see a login page. Login with the user/pass test/test.
-15. Go to the admin page and create your own ADMIN account, delete test user after logging in as new admin account. Make sure your account type is admin before deleting test.
-16. You're done. Have fun!
+14. Open your browser, and navigate to your server's URL : WWW.SERVERURL.COM/create_user_table.php. Assuming you setup your config file correctly, this file should create the users and movies databases necessary for StreamVid to properly run. This file will also have created a basic admin user with username "default" and password "default" (or is it "password"? I honestly don't remember).
+15. Delete or move create_user_table.php from your server's public (www) folder. This file is to be used on first time initialization only. Any subsequent use could remove user or movie entries in the database, or possible corrupt everything.
+16. In your browser, navigate to your server's base URL. You should see a login page. Login with the user/pass test/test.
+17. Go to the admin page and create your own ADMIN account, delete test user after logging in as new admin account. Make sure your account type is admin before deleting test.
+18. You're done. Have fun!
 
-IMAGES
+Images
+------------------------------------
 The original version of the site was called "AB3", an inside joke among friends. As such, the site is branded as "AB3.0" throughout. All that needs to be changed is a few HTML titles and some image files. To that end, I've left the layered photoshop files for your own use. If you want to call your website something else, go for it, I really don't care. They're all in the public apache folder in /images (which in hindsight isn't the best place for them, but whatever).
 
-STATS
+Stats/Analytics
+---------------------------------------
 On the admin page you'll see a box called "Stats JSON". This is for the stats.json file located in the StreamVid folder, which outputs relevant statistical information about the StreamVid server's use. This file is generated by stats.py, a script that is custom to the original machine it was written on. If you want Stats JSON to work for your server, you need to go into stats.py and edit the filepaths to point at the correct locations.
