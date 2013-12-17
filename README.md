@@ -1,8 +1,23 @@
 StreamVid Version 1.1 Readme
 =======================================================
  * AUTHOR: Jon Hall
- * REVISION: 2
- * DATE: 2013/09/10
+ * REVISION: 3
+ * DATE: 2013/12/16
+
+What is StreamVid?
+------------------------------------------------
+StreamVid is a LAMP server application that allows users, through the use of tv database service SickBeard (http://sickbeard.com/) and StreamVid's own movie database, to stream their own digital content while on the go. Complete with a user authentication system so you can add your family members to the site (where they will have their own preferences, favorites, etc.), StreamVid caters to the person who doesn't have time to watch movies or tv while at home, but finds time while traveling or otherwise to enjoy the odd tv show or movie they may have intended to watch at home but never got around to.* Whether at home on another device or outside of your home network, StreamVid enables all media content rendered in MP4 format to play via any device (PC, Mac, Unix, PS3/PS4, Xbox 360, WiiU and PS Vita have all been tested and work).
+
+*StreamVid does not supply any video content of any kind. It is up to the end-user to create and curate their own video libraries. StreamVid is not responsible for any unintended consequences that arise from exposing a user's home video content via the web.
+
+Screenshots
+------------------------------------------------
+* [Home] (http://i.imgur.com/r9ziy7Q.jpg)
+* [TV Shows, Alphabetized] (http://i.imgur.com/r9ziy7Q.jpg)
+* [TV Shows, Latest] (http://i.imgur.com/r9ziy7Q.jpg)
+* [Movies] (http://i.imgur.com/r9ziy7Q.jpg)
+* [User Panel] (http://i.imgur.com/AFZs05D.png)
+
 
 System Requirements
 -------------------------------------------------
