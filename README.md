@@ -15,8 +15,10 @@ Screenshots
 * [Home] (http://i.imgur.com/r9ziy7Q.jpg)
 * [TV Shows, Alphabetized] (http://i.imgur.com/r9ziy7Q.jpg)
 * [TV Shows, Latest] (http://i.imgur.com/r9ziy7Q.jpg)
+* [Individual TV Show Browser] (http://i.imgur.com/JEshH0h.png)
 * [Movies] (http://i.imgur.com/r9ziy7Q.jpg)
 * [User Panel] (http://i.imgur.com/AFZs05D.png)
+* [Player] (http://i.imgur.com/0ti9gjj.png)
 
 
 System Requirements
